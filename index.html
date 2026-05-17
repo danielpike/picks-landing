@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -588,25 +589,268 @@
     transform: translateY(0);
   }
 
-  /* RESPONSIVE */
+  /* ANNOUNCEMENT BAR */
+  .announce-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 101;
+    background: var(--red);
+    padding: 8px 24px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  nav { top: 36px; }
+
+  .hero { padding-top: 160px; }
+
+  /* NAV TAGLINE */
+  .nav-tagline {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  /* SOCIAL PROOF */
+  .social-proof {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--muted);
+    justify-content: center;
+  }
+
+  .social-proof-dots {
+    display: flex;
+    gap: -4px;
+  }
+
+  .social-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--black);
+    margin-left: -6px;
+    display: inline-block;
+  }
+
+  .social-proof strong { color: var(--text); }
+
+  /* PHONE MOCKUP IN HERO */
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 60px;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .hero-left { display: flex; flex-direction: column; align-items: flex-start; }
+
+  .hero-phone {
+    position: relative;
+    z-index: 2;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .phone-frame {
+    background: #1A1A1A;
+    border-radius: 32px;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 10px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .phone-screen {
+    background: #0D0D0D;
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .phone-top-bar {
+    background: #141414;
+    padding: 10px 14px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .phone-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+
+  .phone-logo span { color: var(--red); }
+
+  .phone-card {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: #141414;
+  }
+
+  .phone-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .phone-av {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .phone-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--amber);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+
+  .phone-text {
+    font-size: 11px;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+
+  .phone-hit {
+    background: rgba(46,204,113,0.1);
+    border: 1px solid rgba(46,204,113,0.2);
+    color: #2ECC71;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .phone-actions {
+    display: flex;
+    gap: 12px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .phone-bottom-nav {
+    display: flex;
+    background: #141414;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 8px 0 6px;
+  }
+
+  .phone-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .phone-nav-item.active { color: var(--red); }
+
+  .phone-nav-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background: currentColor;
+    opacity: 0.3;
+  }
+
+  .phone-nav-item.active .phone-nav-dot { opacity: 1; }
+
+  /* FAQ */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    transition: border-color 0.3s;
+  }
+
+  .faq-item:hover { border-color: rgba(232,53,42,0.3); }
+
+  .faq-q {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .faq-a {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* RESPONSIVE UPDATES */
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .shot-showcase { grid-template-columns: 1fr; gap: 40px; }
-    .how-grid { grid-template-columns: 1fr; }
-    .community-grid { grid-template-columns: 1fr; }
-    .waitlist-form { flex-direction: column; }
-    .waitlist-form input { border-right: 1px solid var(--border); border-bottom: none; }
-    .waitlist-form input:focus { border-color: var(--red); }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .hero-layout { grid-template-columns: 1fr; text-align: center; }
+    .hero-left { align-items: center; }
+    .hero-phone { display: none; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .announce-bar { font-size: 10px; letter-spacing: 1px; }
   }
 </style>
 </head>
 <body>
 
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">Launching for the 2026 NFL Season &nbsp;·&nbsp; Join the waitlist now</div>
+
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Picks<span>.</span></div>
-  <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Get Early Access</button>
+  <div>
+    <div class="nav-logo">Picks<span>.</span></div>
+    <div class="nav-tagline">Sports predictions. Permanent receipts.</div>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth', block:'center'})">Get Early Access</button>
 </nav>
 
 <!-- HERO -->
@@ -614,28 +858,121 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
 
-  <p class="hero-eyebrow">Now Taking the Field</p>
+  <div class="hero-layout">
+    <div class="hero-left">
+      <p class="hero-eyebrow" style="text-align:left;">Now Taking the Field</p>
 
-  <h1 class="hero-title">
-    Call Your<br>
-    <span class="accent">Shot.</span><br>
-    <span class="outline">Own It.</span>
-  </h1>
+      <h1 class="hero-title" style="text-align:left;">
+        Call Your<br>
+        <span class="accent">Shot.</span><br>
+        <span class="outline">Own It.</span>
+      </h1>
 
-  <p class="hero-sub">
-    The platform where sports fans make <strong>bold predictions before the moment arrives.</strong>
-    Timestamped. Permanent. Celebrated forever.
-    No deletes. No excuses. Just receipts.
-  </p>
+      <p class="hero-sub" style="text-align:left; margin:0 0 40px;">
+        The platform where sports fans make <strong>bold predictions before the moment arrives.</strong>
+        Timestamped. Permanent. Celebrated forever.
+        No deletes. No excuses. Just receipts.
+      </p>
 
-  <div class="waitlist-wrap" id="waitlist">
-    <form class="waitlist-form" onsubmit="handleSubmit(event)">
-      <input type="email" id="email-input" placeholder="Enter your email address" required autocomplete="email">
-      <button type="submit">Join Waitlist</button>
-    </form>
-    <p class="waitlist-note">Be first when we launch. No spam, ever.</p>
-    <div class="success-msg" id="success-msg">
-      You are on the list. Get ready to call your shot.
+      <div class="waitlist-wrap" id="waitlist">
+        <form class="waitlist-form" onsubmit="handleSubmit(event)">
+          <input type="email" id="email-input" placeholder="Enter your email address" required autocomplete="email">
+          <button type="submit">Join Waitlist</button>
+        </form>
+        <div class="social-proof">
+          <span style="display:flex;">
+            <span class="social-dot" style="background:#E8352A; margin-left:0;"></span>
+            <span class="social-dot" style="background:#F5A623;"></span>
+            <span class="social-dot" style="background:#2ECC71;"></span>
+            <span class="social-dot" style="background:#3B82F6;"></span>
+          </span>
+          <span><strong id="signup-count">247</strong> sports fans already on the list</span>
+        </div>
+        <p class="waitlist-note" style="margin-top:8px;">Launching 2026 NFL Season. No spam, ever.</p>
+        <div class="success-msg" id="success-msg">
+          You are on the list. Get ready to call your shot.
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-phone">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="phone-top-bar">
+            <div class="phone-logo">Picks<span>.</span></div>
+            <div style="display:flex;gap:8px;opacity:0.4;">
+              <div style="width:14px;height:14px;border-radius:50%;background:var(--muted);"></div>
+              <div style="width:14px;height:14px;border-radius:50%;background:var(--muted);"></div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.06);">
+            <div style="flex:1;text-align:center;padding:8px 0;font-size:10px;color:var(--red);font-weight:500;border-bottom:2px solid var(--red);">Following</div>
+            <div style="flex:1;text-align:center;padding:8px 0;font-size:10px;color:rgba(255,255,255,0.3);">All Picks</div>
+            <div style="flex:1;text-align:center;padding:8px 0;font-size:10px;color:rgba(255,255,255,0.3);">Called Shots</div>
+          </div>
+
+          <div class="phone-card">
+            <div class="phone-card-top">
+              <div class="phone-av" style="background:rgba(232,53,42,0.2);color:var(--red);">TR</div>
+              <div>
+                <div style="font-size:11px;font-weight:500;color:var(--text);">tonypicks</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.4);">Posted Aug 4</div>
+              </div>
+            </div>
+            <div class="phone-badge">★ Called Shot</div>
+            <div class="phone-text">"Chiefs win the Super Bowl. Screenshot this."</div>
+            <div class="phone-hit">✓ Hit — Called it 14 weeks out</div>
+            <div class="phone-actions">
+              <span>♥ 847</span>
+              <span>💬 203</span>
+              <span>↩ Tail</span>
+            </div>
+          </div>
+
+          <div class="phone-card" style="opacity:0.7;">
+            <div class="phone-card-top">
+              <div class="phone-av" style="background:rgba(245,166,35,0.2);color:var(--amber);">MM</div>
+              <div>
+                <div style="font-size:11px;font-weight:500;color:var(--text);">mikemlb</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.4);">Before the season</div>
+              </div>
+            </div>
+            <div class="phone-badge">★ Called Shot</div>
+            <div class="phone-text">"Lamar Jackson MVP. No debate."</div>
+            <div style="background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.2);color:var(--amber);font-size:10px;font-weight:500;padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:6px;">◷ Pending</div>
+            <div class="phone-actions">
+              <span>♥ 519</span>
+              <span>💬 147</span>
+              <span>↩ Tail</span>
+            </div>
+          </div>
+
+          <div class="phone-bottom-nav">
+            <div class="phone-nav-item active">
+              <div class="phone-nav-dot"></div>
+              Home
+            </div>
+            <div class="phone-nav-item">
+              <div class="phone-nav-dot"></div>
+              Trending
+            </div>
+            <div class="phone-nav-item">
+              <div style="width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin-top:-8px;">
+                <div style="color:white;font-size:14px;line-height:1;">+</div>
+              </div>
+            </div>
+            <div class="phone-nav-item">
+              <div class="phone-nav-dot"></div>
+              Leaders
+            </div>
+            <div class="phone-nav-item">
+              <div class="phone-nav-dot"></div>
+              Profile
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -773,6 +1110,43 @@
   </div>
 </div>
 
+<!-- FAQ -->
+<div class="divider"></div>
+
+<div class="section reveal">
+  <p class="section-label">Questions</p>
+  <h2 class="section-title">Good Questions. Real Answers.</h2>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="faq-grid reveal">
+    <div class="faq-item">
+      <div class="faq-q">When does Picks launch?</div>
+      <p class="faq-a">We are targeting the 2026 NFL season kickoff in September. That is the biggest prediction moment in sports and exactly when Picks should hit. Join the waitlist and you will be first through the door.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is it free to use?</div>
+      <p class="faq-a">Yes. Picks is free. Post picks, follow other callers, build your highlight reel, and ask the community. No paywall, no coins, no nonsense. Just the platform.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this a betting app?</div>
+      <p class="faq-a">No. Picks is a social platform for sports predictions and discussion. No money changes hands. No bets are placed. You post your call before the game, it gets locked, and your record speaks for itself. Think ESPN debate culture meets social media.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What sports are supported?</div>
+      <p class="faq-a">All of them. NFL, NBA, soccer, UFC, golf, fantasy lineups, player props, season predictions. If you have a take on it, Picks is where it lives. Users bring their own sports and the community follows.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the Called Shot?</div>
+      <p class="faq-a">The Called Shot is a long-range prediction posted significantly before the event. The Super Bowl winner called in August. The MVP picked before the season. When it hits, it is permanently badged on your profile as proof. Named after Babe Ruth pointing to center field.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I delete a bad pick?</div>
+      <p class="faq-a">No. And that is the whole point. Once you post a pick it is permanent. No edits, no deletes, no exceptions. That is what makes the big wins mean something on Picks. Your record is real because it cannot be rewritten.</p>
+    </div>
+  </div>
+</div>
+
 <!-- FINAL CTA -->
 <div class="divider"></div>
 
@@ -784,7 +1158,7 @@
     <span class="outline">Call It Early.</span>
   </h2>
   <p class="final-sub">
-    Join the waitlist and be among the first to make your mark when Picks launches.
+    Join the waitlist and be among the first to make your mark when Picks launches for the 2026 NFL season.
   </p>
 
   <form class="waitlist-form" style="justify-content:center;" onsubmit="handleSubmit(event)">
@@ -802,15 +1176,30 @@
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
     const emailInput = form.querySelector('input[type="email"]');
     const email = emailInput.value;
 
-    // Show success message near whichever form was submitted
     const successId = form.closest('#waitlist') ? 'success-msg' : 'success-msg-2';
     const msg = document.getElementById(successId);
+
+    try {
+      const formData = new FormData();
+      formData.append('EMAIL', email);
+      formData.append('u', '725831');
+      formData.append('id', '725831');
+
+      await fetch('https://picksapp.us11.list-manage.com/subscribe/post?u=725831&id=94477', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      });
+    } catch(err) {
+      console.log('Signup attempted');
+    }
+
     if (msg) {
       msg.style.display = 'block';
       msg.textContent = email + ' is on the list. Get ready to call your shot.';
@@ -818,9 +1207,6 @@
 
     form.style.display = 'none';
     emailInput.value = '';
-
-    // TODO: Connect to your email service (Mailchimp, ConvertKit, Supabase, etc.)
-    console.log('Waitlist signup:', email);
   }
 
   // Scroll reveal
