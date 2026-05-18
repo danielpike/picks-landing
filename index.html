@@ -1218,7 +1218,13 @@
 </footer>
 
 <script>
-  async function handleSubmit(e) {
+  // Hidden iframe for Mailchimp submission without page redirect
+  const iframe = document.createElement('iframe');
+  iframe.name = 'mc-hidden-frame';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
     const emailInput = form.querySelector('input[type="email"]');
@@ -1227,28 +1233,36 @@
     const successId = form.closest('#waitlist') ? 'success-msg' : 'success-msg-2';
     const msg = document.getElementById(successId);
 
-    try {
-      const formData = new FormData();
-      formData.append('EMAIL', email);
-      formData.append('u', '725831');
-      formData.append('id', '725831');
+    // Build a hidden form that posts to Mailchimp via the iframe
+    const mcForm = document.createElement('form');
+    mcForm.action = 'https://picksapp.us11.list-manage.com/subscribe/post?u=e9893a9cd9e6ab10e4d82b2d1&id=dbdfc3492d&f_id=00deb3e0f0';
+    mcForm.method = 'POST';
+    mcForm.target = 'mc-hidden-frame';
+    mcForm.style.display = 'none';
 
-      await fetch('https://picksapp.us11.list-manage.com/subscribe/post?u=e9893a9cd9e6ab10e4d82b2d1&id=dbdfc3492d&f_id=00deb3e0f0', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      });
-    } catch(err) {
-      console.log('Signup attempted');
-    }
+    const emailField = document.createElement('input');
+    emailField.type = 'email';
+    emailField.name = 'EMAIL';
+    emailField.value = email;
+    mcForm.appendChild(emailField);
 
+    const hiddenField = document.createElement('input');
+    hiddenField.type = 'hidden';
+    hiddenField.name = 'b_e9893a9cd9e6ab10e4d82b2d1_dbdfc3492d';
+    hiddenField.value = '';
+    mcForm.appendChild(hiddenField);
+
+    document.body.appendChild(mcForm);
+    mcForm.submit();
+    document.body.removeChild(mcForm);
+
+    // Show success message
     if (msg) {
       msg.style.display = 'block';
       msg.textContent = email + ' is on the list. Get ready to call your shot.';
     }
 
     form.style.display = 'none';
-    emailInput.value = '';
   }
 
   // Scroll reveal
